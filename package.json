@@ -1,0 +1,14 @@
+{
+  "name": "wayfless_generator_flutter",
+  "version": "1.0.0",
+  "main": "scripts/publish.js",
+  "repository": "git@github.com:liudonghua123/wayfless_generator_flutter.git",
+  "author": "liudonghua123 <liudonghua123@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "gh-pages -d build/web"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}
