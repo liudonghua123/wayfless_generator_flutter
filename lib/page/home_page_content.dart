@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 // import 'package:flutter_clipboard_manager/flutter_clipboard_manager.dart';
 // import 'package:clipboard_manager/clipboard_manager.dart';
