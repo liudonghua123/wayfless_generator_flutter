@@ -1,6 +1,6 @@
 # wayfless_generator_flutter
 
-This is a rewrite work of https://github.com/liudonghua123/wayfless_generator using flutter.
+This is a rewrite work of https://github.com/liudonghua123/wayfless-generator using flutter.
 
 You can visit the web version on https://liudonghua123.github.io/wayfless_generator_flutter/, or download android/ios mobile apps, MacOS/Linux/Windows desktop apps on the release page.
 
@@ -21,9 +21,32 @@ Dev command:
 
 `flutter run -d android/ios/chrome/macos/linux/windows`
 
-Build command:
+Build command: (Does not support build other desktop platform apps, in short does not support *cross-compilation*)
 
-`flutter build android/ios/web/macos/linux/windows`
+```bash
+> flutter build -h
+Flutter build commands.
+
+Usage: flutter build <subcommand> [arguments]
+-h, --help    Print this usage information.
+
+Available subcommands:
+  aar             Build a repository containing an AAR and a POM file.
+  aot             Build an ahead-of-time compiled snapshot of your app's Dart
+                  code.
+  apk             Build an Android APK file from your app.
+  appbundle       Build an Android App Bundle file from your app.
+  bundle          Build the Flutter assets directory from your app.
+  ios             Build an iOS application bundle (Mac OS X host only).
+  ios-framework   Produces a .framework directory for a Flutter module and its
+                  plugins for integration into existing, plain Xcode projects.
+  macos           build the MacOS desktop target.
+  linux           build the Linux desktop target.
+  web             build a web application bundle.
+  windows         build the desktop Windows target.
+
+Run "flutter help" to see global options.
+```
 
 ## References
 
