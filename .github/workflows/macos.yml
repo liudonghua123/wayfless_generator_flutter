@@ -64,7 +64,8 @@ jobs:
       # - run: flutter build ios
       - run: npm install tree-node-cli -g
       - run: treee build
-      - run: zip wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r build/macos/Build/Products/Release/wayfless_generator_flutter.app
+      - run: cp -r build/macos/Build/Products/Release/wayfless_generator_flutter.app wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.app
+      - run: zip wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.app
       - run: cp build/app/outputs/apk/release/app-release.apk wayfless-android-${{ steps.branch_name.outputs.SOURCE_NAME }}.apk
 
       # https://github.com/xresloader/upload-to-github-release
