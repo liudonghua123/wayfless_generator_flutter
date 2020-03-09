@@ -44,13 +44,13 @@ jobs:
       - run: flutter build linux
       - run: sudo npm install tree-node-cli -g
       - run: treee build
-      - run: zip wayfless-linux-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip -r build/linux/release
+      - run: zip wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r build/linux/release
       # https://github.com/xresloader/upload-to-github-release
       - uses: xresloader/upload-to-github-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: wayfless-linux-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip
+          file: wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip
           tags: true
           draft: false
           update_latest_release: true

@@ -64,15 +64,15 @@ jobs:
       # - run: flutter build ios
       - run: npm install tree-node-cli -g
       - run: treee build
-      - run: zip wayfless-macos-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip -r build/macos/Build/Products/Release/wayfless_generator_flutter.app
-      - run: cp build/app/outputs/apk/release/app-release.apk wayfless-android-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk
+      - run: zip wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r build/macos/Build/Products/Release/wayfless_generator_flutter.app
+      - run: cp build/app/outputs/apk/release/app-release.apk wayfless-android-${{ steps.branch_name.outputs.SOURCE_NAME }}.apk
 
       # https://github.com/xresloader/upload-to-github-release
       - uses: xresloader/upload-to-github-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          file: wayfless-macos-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip;wayfless-android-${{ steps.branch_name.outputs.SOURCE_TAG }}.apk
+          file: wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip;wayfless-android-${{ steps.branch_name.outputs.SOURCE_NAME }}.apk
           tags: true
           draft: false
           update_latest_release: true
