@@ -1,5 +1,9 @@
 # wayfless_generator_flutter
 
+![MacOS-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/MacOS-CI/badge.svg)
+![Linux-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/Linux-CI/badge.svg)
+![Windows-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/Windows-CI/badge.svg)
+
 This is a rewrite work of https://github.com/liudonghua123/wayfless-generator using flutter.
 
 You can visit the web version on https://liudonghua123.github.io/wayfless_generator_flutter/, or download android/ios mobile apps, MacOS/Linux/Windows desktop apps on the release page.
