@@ -76,4 +76,3 @@ jobs:
           file: wayfless-macos-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip;wayfless-android-${{ steps.branch_name.outputs.SOURCE_NAME }}.apk
           tags: true
           draft: false
-          update_latest_release: true

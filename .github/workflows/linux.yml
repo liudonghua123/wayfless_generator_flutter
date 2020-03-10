@@ -54,4 +54,3 @@ jobs:
           file: wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip
           tags: true
           draft: false
-          update_latest_release: true
