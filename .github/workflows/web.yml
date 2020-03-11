@@ -36,7 +36,7 @@ jobs:
           treee build
 
       - name: Deploy to GitHub Pages
-        uses: Cecilapp/GitHub-Pages-deploy@master
+        uses: liudonghua123/GitHub-Pages-deploy@'fix-multi-level-BUILD_DIR'
         env:
           EMAIL: liudonghua123@gmail.com
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
