@@ -1,5 +1,6 @@
 # wayfless_generator_flutter
 
+![WEB-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/WEB-CI/badge.svg)
 ![MacOS-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/MacOS-CI/badge.svg)
 ![Linux-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/Linux-CI/badge.svg)
 ![Windows-CI](https://github.com/liudonghua123/wayfless_generator_flutter/workflows/Windows-CI/badge.svg)
