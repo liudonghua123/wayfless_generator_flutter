@@ -1,0 +1,43 @@
+name: WEB-CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/flutter-action
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "8.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+
+      - name: Enable web support
+        run: |
+          flutter upgrade
+          flutter config --enable-web
+          flutter pub get
+
+      - name: Build web
+        run: |
+          flutter build web
+
+      - name: Debug
+        run: |
+          sudo npm install tree-node-cli -g
+          treee build
+
+      - name: Deploy to GitHub Pages
+        uses: Cecilapp/GitHub-Pages-deploy@master
+        env:
+          EMAIL: liudonghua123@gmail.com
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_DIR: build/web/

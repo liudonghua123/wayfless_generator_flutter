@@ -37,14 +37,27 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: "dev" # optional, default to: 'stable'
-      - run: flutter channel master
-      - run: flutter upgrade
-      - run: flutter config --enable-windows-desktop
-      - run: flutter pub get
-      - run: flutter build windows
-      - run: npm install tree-node-cli -g
-      - run: treee build
-      - run: 7z a -tzip wayfless-windows-x64-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r .\build\windows\x64\Release\Runner\*
+
+      - name: Change flutter channel to master, enable windows support
+        run: |
+          flutter channel master
+          flutter upgrade
+          flutter config --enable-windows-desktop
+          flutter pub get
+
+      - name: Build windows
+        run: |
+          flutter build windows
+
+      - name: Debug
+        run: |
+          npm install tree-node-cli -g
+          treee build
+
+      - name: Prepare release files
+        run: |
+          7z a -tzip wayfless-windows-x64-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r .\build\windows\x64\Release\Runner\*
+
       # https://github.com/xresloader/upload-to-github-release
       - uses: xresloader/upload-to-github-release@v1
         env:

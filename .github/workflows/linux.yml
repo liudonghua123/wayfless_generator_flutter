@@ -37,15 +37,27 @@ jobs:
         with:
           channel: "dev" # optional, default to: 'stable'
 
-      - run: flutter channel master
-      - run: flutter upgrade
-      - run: flutter config --enable-linux-desktop
-      - run: flutter pub get
-      - run: flutter build linux
-      - run: sudo npm install tree-node-cli -g
-      - run: treee build
-      - run: cp -r build/linux/release wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}
-      - run: zip wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}
+      - name: Change flutter channel to master, enable linux support
+        run: |
+          flutter channel master
+          flutter upgrade
+          flutter config --enable-linux-desktop
+          flutter pub get
+
+      - name: Build linux
+        run: |
+          flutter build linux
+
+      - name: Debug
+        run: |
+          sudo npm install tree-node-cli -g
+          treee build
+
+      - name: Prepare release files
+        run: |
+          cp -r build/linux/release wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}
+          zip wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}.zip -r wayfless-linux-${{ steps.branch_name.outputs.SOURCE_NAME }}
+
       # https://github.com/xresloader/upload-to-github-release
       - uses: xresloader/upload-to-github-release@v1
         env:
